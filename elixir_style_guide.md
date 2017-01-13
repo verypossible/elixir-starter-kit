@@ -58,16 +58,6 @@
 
 - Use `===` unless you actually need `==`. Use `!==` unless you actually need `!=`.
 
-- Omit parentheses from nullary calls.
-
-    ```elixir
-    # bad
-    MapSet.new()
-
-    # good
-    MapSet.new
-    ```
-
 - When a keyword list, list, or map spans multiple lines, place the delimiters on separate lines from the items. Do not omit the comma from the final item.
 
     ```elixir
