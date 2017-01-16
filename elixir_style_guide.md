@@ -107,7 +107,6 @@
 
     ```elixir
     # bad
-    # bad
     ["alpha",
      "bravo",
      "charlie",
