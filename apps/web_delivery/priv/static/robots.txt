@@ -1,0 +1,5 @@
+# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+#
+# Since this is intended to be used for APIs, it should not be crawled by spiders
+User-agent: *
+Disallow: /

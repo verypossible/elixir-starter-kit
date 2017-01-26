@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>cover/Elixir.WebDelivery.html</title>
+</head><body style='background-color: white; color: black'>
+<pre>
+File generated from /app/apps/web_delivery/lib/web_delivery.ex by COVER 2017-01-26 at 21:26:43
+
+****************************************************************************
+
+        |  defmodule WebDelivery do
+        |    use Application
+        |  
+        |    # See http://elixir-lang.org/docs/stable/elixir/Application.html
+        |    # for more information on OTP Applications
+        |    def start(_type, _args) do
+        |      import Supervisor.Spec
+        |  
+        |      # Define workers and child supervisors to be supervised
+     1..|      children = [
+        |        # Start the endpoint when the application starts
+        |        supervisor(WebDelivery.Endpoint, []),
+        |        # Start your own worker by calling: WebDelivery.Worker.start_link(arg1, arg2, arg3)
+        |        # worker(WebDelivery.Worker, [arg1, arg2, arg3]),
+        |      ]
+        |  
+        |      # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
+        |      # for other strategies and supported options
+     1..|      opts = [strategy: :one_for_one, name: WebDelivery.Supervisor]
+     1..|      Supervisor.start_link(children, opts)
+        |    end
+        |  
+        |    # Tell Phoenix to update the endpoint configuration
+        |    # whenever the application is updated.
+        |    def config_change(changed, _new, removed) do
+<font color=red>     0..|      WebDelivery.Endpoint.config_change(changed, removed)</font>
+        |      :ok
+        |    end
+        |  end
+</pre>
+</body>
+</html>
