@@ -74,6 +74,20 @@ and run everything like normal.
 $ docker-compose run web bash
 ```
 
+## Deployment
+
+The Phoenix Booster Kit can be deployed to heroku relatively easily. Create a
+project with:
+
+```bash
+$ heroku create #{PROJECT_NAME} --buildpack "https://github.com/HashNuke/heroku-buildpack-elixir.git"
+```
+
+The Phoenix build pack is not needed since the project was instantiated with
+`--no-brunch`. Deployment can be configured from CircleCI or automatically with
+GitHub. We recommend deploying from CircleCI since you will have more fine
+grained control of your deployments.
+
 ## Dependencies
 
 - Erlang (latest)
