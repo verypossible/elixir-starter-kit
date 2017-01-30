@@ -2,33 +2,29 @@ defmodule WebDelivery.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :web_delivery,
-     version: "0.0.1",
-     elixir: "~> 1.2",
-     elixirc_paths: elixirc_paths(Mix.env),
-     compilers: [:phoenix, :gettext] ++ Mix.compilers,
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     test_coverage: [tool: ExCoveralls],
-     preferred_cli_env: [coveralls: :test],
-     deps: deps()]
+    [
+      app: :web_delivery,
+      build_embedded: Mix.env === :prod,
+      build_path: "../../_build",
+      compilers: [:phoenix, :gettext] ++ Mix.compilers,
+      config_path: "../../config/config.exs",
+      deps: deps(),
+      deps_path: "../../deps",
+      elixir: "~> 1.4",
+      elixirc_paths: elixirc_paths(Mix.env),
+      lockfile: "../../mix.lock",
+      preferred_cli_env: [coveralls: :test],
+      start_permanent: Mix.env == :prod,
+      test_coverage: [tool: ExCoveralls],
+      version: "0.0.1",
+    ]
   end
 
-  # Configuration for the OTP application.
-  #
-  # Type `mix help compile.app` for more information.
-  def application do
-    [mod: {WebDelivery, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext]]
-  end
+  def application, do: [mod: {WebDelivery, []}, extra_applications: [:logger]]
 
-  # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
   defp elixirc_paths(_),     do: ["lib", "web"]
 
-  # Specifies your project dependencies.
-  #
-  # Type `mix help deps` for examples and options.
   defp deps do
     [
       {:cowboy, "~> 1.0"},
