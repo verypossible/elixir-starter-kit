@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+    db:
+      image: postgres
+
+    web:
+      build: .
+      command: mix phoenix.server
+      environment:
+        - MIX_ENV=dev
+      volumes:
+        - .:/app
+      ports:
+        - "4000:4000"
+      depends_on:
+        - db
