@@ -55,6 +55,16 @@ for more in depth analysis and stored at `cover/excoveralls.html`.
 $ docker-compose run -e MIX_ENV=test web mix coveralls.html --umbrella
 ```
 
+#### Running Linters
+
+For the Phoenix Booster Kit we are using
+[credo](https://github.com/rrrene/credo) to check the codebase for consistency.
+All of the CLI options for credo are available to you as well.
+
+```bash
+$ docker-compose run web mix credo
+```
+
 #### Running a Bash Prompt
 
 If you don't feel like typing any of those commands, you can start a bash prompt
