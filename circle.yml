@@ -16,6 +16,6 @@ dependencies:
     - mix do local.hex --force, local.rebar --force, deps.get
 test:
   override:
-    - mix do clean, compile --warnings-as-errors
+    - mix do clean, compile
     - mix test
     - mix credo
