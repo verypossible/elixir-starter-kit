@@ -18,3 +18,4 @@ test:
   override:
     - mix do clean, compile --warnings-as-errors
     - mix test
+    - mix credo

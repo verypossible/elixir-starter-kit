@@ -3,6 +3,6 @@ defmodule WebDelivery.StatusControllerTest do
 
   test "GET /api", %{conn: conn} do
     conn = get conn, "/api"
-    assert json_response(conn, 200) == %{ "status" => "OK" }
+    assert json_response(conn, 200) == %{"status" => "OK"}
   end
 end

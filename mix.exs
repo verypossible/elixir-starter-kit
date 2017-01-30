@@ -14,6 +14,7 @@ defmodule BoosterKit.Mixfile do
 
   defp deps do
     [
+      {:credo, "~> 0.5", only: [:dev, :test]},
       {:excoveralls, "~> 0.5", only: :test},
     ]
   end
