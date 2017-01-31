@@ -76,11 +76,13 @@ $ docker-compose run web bash
 
 ## Deployment
 
-The Phoenix Booster Kit can be deployed to heroku relatively easily. Create a
-project with:
+The Phoenix Booster Kit can be deployed to heroku relatively easily. You should
+install the [heroku cli](https://devcenter.heroku.com/articles/heroku-cli), once
+you have done so, create a project with:
 
 ```bash
 $ heroku create #{PROJECT_NAME} --buildpack "https://github.com/HashNuke/heroku-buildpack-elixir.git"
+$ heroku config:set SECRET_KEY_BASE=$(mix phoenix.gen.secret) HOST_NAME=#{PROJECT_NAME} MIX_ENV=prod
 ```
 
 The Phoenix build pack is not needed since the project was instantiated with
