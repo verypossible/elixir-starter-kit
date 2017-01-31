@@ -8,7 +8,7 @@ use Mix.Config
 # Configures the endpoint
 config :web_delivery, WebDelivery.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "PPbW9iTTDi3BYLVdQtRZzy+aNojCytNIslez3nOaLGP1ieOP2Jwej0GKe2f+sofQ",
+  secret_key_base: System.get_env("SECRET_KEY_BASE"),
   render_errors: [view: WebDelivery.ErrorView, accepts: ~w(html json)],
   pubsub: [name: WebDelivery.PubSub,
            adapter: Phoenix.PubSub.PG2]
