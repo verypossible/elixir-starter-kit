@@ -16,6 +16,12 @@ brief list of dependencies is included.
 If you do wish to use Docker and Docker Compose, here are some commands you will
 find helpful.
 
+#### Environment Files
+
+The docker compose definition is configured to reference environment variables
+from an `.envrc` file. A sample file is stored at `.envrc.sample` and the
+environment file is gitignored.
+
 #### Running the API
 
 The API can be started with the standard Docker Compose `up` command. This will

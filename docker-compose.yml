@@ -7,6 +7,7 @@ services:
     web:
       build: .
       command: mix phoenix.server
+      env_file: .envrc
       environment:
         - MIX_ENV=dev
       volumes:
