@@ -16,6 +16,17 @@ brief list of dependencies is included.
 If you do wish to use Docker and Docker Compose, here are some commands you will
 find helpful.
 
+#### Installing Dependencies
+
+Installing dependencies can be performed in a one step command.
+
+```bash
+$ docker-compose run web mix do deps.get, deps.compile, dialyzer.plt
+```
+
+Dialyzer is a static code analysis tool that is extemely helpful for catching
+type related issues. Its usage is documented later in this readme.
+
 #### Environment Files
 
 The docker compose definition is configured to reference environment variables
@@ -69,6 +80,16 @@ All of the CLI options for credo are available to you as well.
 
 ```bash
 $ docker-compose run web mix credo
+```
+
+#### Running Static Code Analysis
+
+The Phoenix Booster Kit is using
+[dialyxir](https://github.com/jeremyjh/dialyxir) for static code analysis. All
+of the CLI options for dialyzer are available to you.
+
+```bash
+$ docker-compose run web mix dialyzer
 ```
 
 #### Running a Bash Prompt
