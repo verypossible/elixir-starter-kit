@@ -8,3 +8,6 @@ config :web_delivery, WebDelivery.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+# Turn off rollbar in development
+config :rollbax, enabled: false
