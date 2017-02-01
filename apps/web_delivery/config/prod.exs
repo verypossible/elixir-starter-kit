@@ -3,8 +3,7 @@ use Mix.Config
 config :web_delivery, WebDelivery.Endpoint,
   http: [port: {:system, "PORT"}],
   url: [scheme: "https", host: System.get_env("HOST_NAME"), port: 443],
-  force_ssl: [rewrite_on: [:x_forwarded_proto]],
-  cache_static_manifest: "priv/static/manifest.json"
+  force_ssl: [rewrite_on: [:x_forwarded_proto]]
 
 # Do not print debug messages in production
 config :logger, backends: [Rollbax.Logger, :console]
