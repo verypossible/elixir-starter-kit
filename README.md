@@ -21,11 +21,8 @@ find helpful.
 Installing dependencies can be performed in a one step command.
 
 ```bash
-$ docker-compose run web mix do deps.get, deps.compile, dialyzer.plt
+$ docker-compose run web mix do deps.get, deps.compile
 ```
-
-Dialyzer is a static code analysis tool that is extemely helpful for catching
-type related issues. Its usage is documented later in this readme.
 
 #### Environment Files
 
