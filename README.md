@@ -4,6 +4,23 @@ The Phoenix Booster kit is a starting point for an umbrella app with web
 delivery performed by the Phoenix Framework. The booster kit is meant to be a
 stand alone json api.
 
+* [Development](#development)
+  * [Usage](#usage)
+    * [Installing Dependencies](#installing-dependencies)
+    * [Environment Files](#environment-files)
+    * [Running the API](#running-the-api)
+    * [Running the Tests](#running-the-tests)
+    * [Running the Tests with Coverage](#running-the-tests-with-coverage)
+    * [Running the Tests with HTML Coverage](#running-the-tests-with-html-coverage)
+    * [Running Linters](#running-linters)
+    * [Running Static Code Analysis](#running-static-code-analysis)
+    * [Running a Bash Prompt](#running-a-bash-prompt)
+* [Deployment](#deployment)
+* [Production](#production)
+  * [Exception Tracking](#exception-tracking)
+* [Dependencies](#dependencies)
+
+
 ## Development
 
 This booster kit has been setup with docker so the only development dependencies
@@ -113,6 +130,33 @@ The Phoenix build pack is not needed since the project was instantiated with
 `--no-brunch`. Deployment can be configured from CircleCI or automatically with
 GitHub. We recommend deploying from CircleCI since you will have more fine
 grained control of your deployments.
+
+## Production
+
+When running in production, it is crucial the appropriate monitoring tools are
+configured to ensure issues can be easily found and quickly remedied. Below are
+some tools that are commonly used and included in the Phoenix Booster Kit and
+how to configure them specifically for your project.
+
+### Exception Tracking
+
+Our exception tracking tool of choice is [Rollbar](https://rollbar.com). The
+[rollbax](https://github.com/elixir-addicts/rollbax) hex package is included and
+configured to capture errors **only in the production environment**. To complete
+the Rollbar configuration, you will need to create a project in rollbar, and add
+the access token and application environment to the production environment
+variables. On heroku, you can do this with the following command:
+
+```bash
+$ heroku config:set APPLICATION_ENVIRONMENT=production ROLLBAR_ACCESS_TOKEN=#{access token copied from rollbar}
+```
+
+Once the environment variables are in place and the rollbar project is setup,
+rollbar notifications can be created with:
+
+```bash
+heroku addons:create deployhooks:http --url="https://api.rollbar.com/api/1/deploy/?access_token=#{access token copied from rollbar}&environment=production"
+```
 
 ## Dependencies
 

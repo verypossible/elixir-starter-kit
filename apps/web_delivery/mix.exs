@@ -34,6 +34,7 @@ defmodule WebDelivery.Mixfile do
       {:phoenix_html, "~> 2.6"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:phoenix_pubsub, "~> 1.0"},
+      {:rollbax, "~> 0.8.0"},
     ]
   end
 end
