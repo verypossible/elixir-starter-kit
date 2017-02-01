@@ -3,7 +3,7 @@
   "cowboy": {:hex, :cowboy, "1.0.4", "a324a8df9f2316c833a470d918aaf73ae894278b8aa6226ce7a9bf699388f878", [:make, :rebar], [{:cowlib, "~> 1.0.0", [hex: :cowlib, optional: false]}, {:ranch, "~> 1.0", [hex: :ranch, optional: false]}]},
   "cowlib": {:hex, :cowlib, "1.0.2", "9d769a1d062c9c3ac753096f868ca121e2730b9a377de23dec0f7e08b1df84ee", [:make], []},
   "credo": {:hex, :credo, "0.6.0", "44a82f82b94eeb4ba6092c89b8a6730ca1a3291c7940739d5acc8806d25ac991", [:mix], [{:bunt, "~> 0.2.0", [hex: :bunt, optional: false]}]},
-  "dialyxir": {:hex, :dialyxir, "0.3.5", "eaba092549e044c76f83165978979f60110dc58dd5b92fd952bf2312f64e9b14", [:mix], []},
+  "dialyxir": {:hex, :dialyxir, "0.4.3", "a4daeebd0107de10d3bbae2ccb6b8905e69544db1ed5fe9148ad27cd4cb2c0cd", [:mix], []},
   "excoveralls": {:hex, :excoveralls, "0.6.1", "9e946b6db84dba592f47632157ecd135a46384b98a430fd16007dc910c70348b", [:mix], [{:exjsx, "~> 3.0", [hex: :exjsx, optional: false]}, {:hackney, ">= 0.12.0", [hex: :hackney, optional: false]}]},
   "exjsx": {:hex, :exjsx, "3.2.1", "1bc5bf1e4fd249104178f0885030bcd75a4526f4d2a1e976f4b428d347614f0f", [:mix], [{:jsx, "~> 2.8.0", [hex: :jsx, optional: false]}]},
   "fs": {:hex, :fs, "2.12.0", "ad631efacc9a5683c8eaa1b274e24fa64a1b8eb30747e9595b93bec7e492e25e", [:rebar3], []},
