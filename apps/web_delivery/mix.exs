@@ -31,7 +31,6 @@ defmodule WebDelivery.Mixfile do
       {:excoveralls, "~> 0.5", only: :test},
       {:gettext, "~> 0.11"},
       {:phoenix, "~> 1.2.1"},
-      {:phoenix_html, "~> 2.6"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:phoenix_pubsub, "~> 1.0"},
       {:rollbax, "~> 0.8.0"},
