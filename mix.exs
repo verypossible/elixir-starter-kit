@@ -13,7 +13,6 @@ defmodule BoosterKit.Mixfile do
           "-Wrace_conditions",
           "-Wunderspecs"
         ],
-        ignore_warnings: "dialyzer.ignore-warnings",
         plt_add_apps: [:mix, :ex_unit],
         plt_add_deps: :transitive,
       ],
