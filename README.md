@@ -18,6 +18,7 @@ stand alone json api.
 * [Deployment](#deployment)
 * [Production](#production)
   * [Exception Tracking](#exception-tracking)
+  * [Log Capturing](#log-capturing)
 * [Dependencies](#dependencies)
 
 
@@ -155,8 +156,26 @@ Once the environment variables are in place and the rollbar project is setup,
 rollbar notifications can be created with:
 
 ```bash
-heroku addons:create deployhooks:http --url="https://api.rollbar.com/api/1/deploy/?access_token=#{access token copied from rollbar}&environment=production"
+$ heroku addons:create deployhooks:http --url="https://api.rollbar.com/api/1/deploy/?access_token=#{access token copied from rollbar}&environment=production"
 ```
+
+### Log Capturing
+
+Heroku doesn't keep logs around forever and they aren't exactly easy to search
+either. However, they do allow you to setup a log drain so the logs can be
+stored in another place for easier searching and better persistence. Spartan has
+a loggly account for persisting server logs. In order to setup a log drain you
+will need to obtain the `CUSTOMER TOKEN`. This can be obtained from the loggly
+portal. Once you have the `CUSTOMER TOKEN` you can create a log drain with the
+following command:
+
+```bash
+$ heroku drains:add https://logs.loggly.com/inputs/#{CUSTOMER_TOKEN}/tag/production,#{PROJECT_NAME},elixir --app #{PROJECT_NAME}
+```
+
+This will tag all of the logs for the project with `production`, `elixir`, and
+the name of the project. This will allow you to more easily filter out the logs
+from other projects.
 
 ## Dependencies
 
