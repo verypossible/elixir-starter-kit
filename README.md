@@ -20,7 +20,6 @@ stand alone json api.
   * [Exception Tracking](#exception-tracking)
   * [Log Capturing](#log-capturing)
   * [Alternate Production Environments](#alternate-production-environments)
-* [Dependencies](#dependencies)
 
 
 ## Development
@@ -28,7 +27,8 @@ stand alone json api.
 This booster kit has been set up with docker so the only development
 dependencies are Docker and Docker Compose. However, we also understand that not
 everyone likes to use Docker. If you wish to manage your dependencies manually,
-a brief list of dependencies is included.
+we recommend using (asdf)[https://github.com/asdf-vm/asdf]. A `.tool-versions`
+file is included in this kit.
 
 ### Usage
 
@@ -196,12 +196,3 @@ with:
 ```bash
 $ heroku addons:create deployhooks:http --url="https://api.rollbar.com/api/1/deploy/?access_token=#{access token copied from Rollbar}&environment=#{deploy tag}"
 ```
-
-## Dependencies
-
-- Erlang (latest)
-- Elixir (latest)
-- Hex
-- Rebar
-- Phoenix
-- Postgresql
