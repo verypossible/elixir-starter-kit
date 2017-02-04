@@ -1,14 +1,13 @@
 use Mix.Config
 
 config :web_delivery, WebDelivery.Endpoint,
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
   http: [port: {:system, "PORT"}],
-  url: [scheme: "https", host: System.get_env("HOST_NAME"), port: 443],
-  force_ssl: [rewrite_on: [:x_forwarded_proto]]
+  url: [scheme: "https", host: System.get_env("HOST_NAME"), port: 443]
 
-# Do not print debug messages in production
 config :logger, backends: [Rollbax.Logger, :console]
 
 config :logger, Rollbax.Logger,
-  level: :error,
   format: "$time $metadata[$level] $message\n",
+  level: :error,
   metadata: [:request_id]

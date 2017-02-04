@@ -16,10 +16,8 @@ defmodule WebDelivery.Web do
   below.
   """
 
-  def model do
-    quote do
-      # Define common model functionality
-    end
+  defmacro __using__(which) when is_atom(which) do
+    apply(__MODULE__, which, [])
   end
 
   def controller do
@@ -28,6 +26,9 @@ defmodule WebDelivery.Web do
 
       import WebDelivery.Router.Helpers
       import WebDelivery.Gettext
+
+      @type conn :: Plug.Conn.t
+      @type params :: Plug.Conn.params
     end
   end
 
@@ -35,8 +36,7 @@ defmodule WebDelivery.Web do
     quote do
       use Phoenix.View, root: "web/templates"
 
-      # Import convenience functions from controllers
-      import Phoenix.Controller, only: [get_csrf_token: 0, get_flash: 2, view_module: 1]
+      import Phoenix.Controller, only: [view_module: 1]
 
       import WebDelivery.Router.Helpers
       import WebDelivery.Gettext
@@ -54,12 +54,5 @@ defmodule WebDelivery.Web do
       use Phoenix.Channel
       import WebDelivery.Gettext
     end
-  end
-
-  @doc """
-  When used, dispatch to the appropriate controller/view/etc.
-  """
-  defmacro __using__(which) when is_atom(which) do
-    apply(__MODULE__, which, [])
   end
 end

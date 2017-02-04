@@ -1,4 +1,6 @@
 defmodule WebDelivery.Gettext do
+  use Gettext, otp_app: :web_delivery
+
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
@@ -20,8 +22,6 @@ defmodule WebDelivery.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :web_delivery
-  @dialyzer [
-    {:nowarn_function, 'MACRO-ngettext_noop': 3},
-  ]
+
+  @dialyzer [nowarn_function: ["MACRO-ngettext_noop": 3]]
 end

@@ -1,4 +1,8 @@
 defmodule WebDelivery.ConnCase do
+  use ExUnit.CaseTemplate
+
+  alias WebDelivery.{Endpoint, Router}
+
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -13,22 +17,15 @@ defmodule WebDelivery.ConnCase do
   of the test unless the test case is marked as async.
   """
 
-  use ExUnit.CaseTemplate
-
   using do
     quote do
-      # Import conveniences for testing with connections
       use Phoenix.ConnTest
 
-      import WebDelivery.Router.Helpers
+      import Router.Helpers
 
-      # The default endpoint for testing
-      @endpoint WebDelivery.Endpoint
+      @endpoint Endpoint
     end
   end
 
-  setup tags do
-
-    {:ok, conn: Phoenix.ConnTest.build_conn()}
-  end
+  setup do: {:ok, conn: Phoenix.ConnTest.build_conn()}
 end
