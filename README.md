@@ -19,15 +19,16 @@ stand alone json api.
 * [Production](#production)
   * [Exception Tracking](#exception-tracking)
   * [Log Capturing](#log-capturing)
+  * [Alternate Production Environments](#alternate-production-environments)
 * [Dependencies](#dependencies)
 
 
 ## Development
 
-This booster kit has been setup with docker so the only development dependencies
-are Docker and Docker Compose. However, we also understand that everyone does
-not like to use Docker. If you wish to manage your dependencies manually, a
-brief list of dependencies is included.
+This booster kit has been set up with docker so the only development
+dependencies are Docker and Docker Compose. However, we also understand that not
+everyone likes to use Docker. If you wish to manage your dependencies manually,
+a brief list of dependencies is included.
 
 ### Usage
 
@@ -144,38 +145,57 @@ how to configure them specifically for your project.
 Our exception tracking tool of choice is [Rollbar](https://rollbar.com). The
 [rollbax](https://github.com/elixir-addicts/rollbax) hex package is included and
 configured to capture errors **only in the production environment**. To complete
-the Rollbar configuration, you will need to create a project in rollbar, and add
-the access token and application environment to the production environment
-variables. On heroku, you can do this with the following command:
+the Rollbar configuration, you will need to create a project in Rollbar, and add
+the access token to the production environment variables. On Heroku, you can do
+this with the following command:
 
 ```bash
-$ heroku config:set APPLICATION_ENVIRONMENT=production ROLLBAR_ACCESS_TOKEN=#{access token copied from rollbar}
+$ heroku config:set ROLLBAR_ACCESS_TOKEN=#{access token copied from Rollbar}
 ```
 
-Once the environment variables are in place and the rollbar project is setup,
-rollbar notifications can be created with:
+Once the environment variable is in place and the Rollbar project is set up,
+Rollbar notifications can be created for the primary production environment
+with:
 
 ```bash
-$ heroku addons:create deployhooks:http --url="https://api.rollbar.com/api/1/deploy/?access_token=#{access token copied from rollbar}&environment=production"
+$ heroku addons:create deployhooks:http --url="https://api.rollbar.com/api/1/deploy/?access_token=#{access token copied from Rollbar}&environment=prod
 ```
 
 ### Log Capturing
 
 Heroku doesn't keep logs around forever and they aren't exactly easy to search
-either. However, they do allow you to setup a log drain so the logs can be
+either. However, they do allow you to set up a log drain so the logs can be
 stored in another place for easier searching and better persistence. Spartan has
-a loggly account for persisting server logs. In order to setup a log drain you
+a loggly account for persisting server logs. In order to set up a log drain you
 will need to obtain the `CUSTOMER TOKEN`. This can be obtained from the loggly
 portal. Once you have the `CUSTOMER TOKEN` you can create a log drain with the
 following command:
 
 ```bash
-$ heroku drains:add https://logs.loggly.com/inputs/#{CUSTOMER_TOKEN}/tag/production,#{PROJECT_NAME},elixir --app #{PROJECT_NAME}
+$ heroku drains:add https://logs.loggly.com/inputs/#{CUSTOMER_TOKEN}/tag/prod,#{PROJECT_NAME},elixir --app #{PROJECT_NAME}
 ```
 
-This will tag all of the logs for the project with `production`, `elixir`, and
-the name of the project. This will allow you to more easily filter out the logs
-from other projects.
+This will tag all of the logs for the project with `prod`, `elixir`, and the
+name of the project. This will allow you to more easily filter out the logs from
+other projects.
+
+### Alternate Production Environments
+
+If you are deploying to an alternate production environment (e.g., staging), you
+will want to set a deploy tag to differentiate errors that occurred in the the
+alternate environment from those that occurred in the primary production
+environment. You can set the deploy tag on Heroku using the following command:
+
+```bash
+$ heroku config:set DEPLOY_TAG=#{deploy tag, to identify alternate production environment}
+```
+
+Rollbar notifications can be created for the alternate production environment
+with:
+
+```bash
+$ heroku addons:create deployhooks:http --url="https://api.rollbar.com/api/1/deploy/?access_token=#{access token copied from Rollbar}&environment=#{deploy tag}"
+```
 
 ## Dependencies
 
