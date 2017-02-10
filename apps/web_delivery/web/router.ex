@@ -6,7 +6,7 @@ defmodule WebDelivery.Router do
   end
 
   scope "/api", WebDelivery do
-    pipe_through :api # Use the default browser stack
+    pipe_through :api
 
     get "/", StatusController, :index
   end

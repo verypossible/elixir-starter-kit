@@ -1,20 +1,12 @@
 use Mix.Config
 
-# For development, we disable any cache and enable
-# debugging and code reloading.
-#
-# The watchers configuration can be used to run external
-# watchers to your application. For example, we use it
-# with brunch.io to recompile .js and .css sources.
 config :web_delivery, WebDelivery.Endpoint,
-  http: [port: 4000],
-  debug_errors: true,
-  code_reloader: true,
   check_origin: false,
+  code_reloader: true,
+  debug_errors: true,
+  http: [port: 4000],
   watchers: []
 
-
-# Watch static and templates for browser reloading.
 config :web_delivery, WebDelivery.Endpoint,
   live_reload: [
     patterns: [
@@ -24,12 +16,8 @@ config :web_delivery, WebDelivery.Endpoint,
     ]
   ]
 
-# Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 
-# Turn off rollbar in development
-config :rollbax, enabled: false
-
-# Set a higher stacktrace during development. Avoid configuring such
-# in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
+
+config :rollbax, enabled: false

@@ -11,13 +11,13 @@ defmodule BoosterKit.Mixfile do
           "-Wunmatched_returns",
           "-Werror_handling",
           "-Wrace_conditions",
-          "-Wunderspecs"
+          "-Wunderspecs",
         ],
         plt_add_apps: [:mix, :ex_unit],
         plt_add_deps: :transitive,
       ],
       preferred_cli_env: [coveralls: :test],
-      start_permanent: Mix.env == :prod,
+      start_permanent: Mix.env === :prod,
       test_coverage: [tool: ExCoveralls],
     ]
   end

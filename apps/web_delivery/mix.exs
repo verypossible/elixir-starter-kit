@@ -14,16 +14,11 @@ defmodule WebDelivery.Mixfile do
       elixirc_paths: elixirc_paths(Mix.env),
       lockfile: "../../mix.lock",
       preferred_cli_env: [coveralls: :test],
-      start_permanent: Mix.env == :prod,
+      start_permanent: Mix.env === :prod,
       test_coverage: [tool: ExCoveralls],
       version: "0.0.1",
     ]
   end
-
-  def application, do: [mod: {WebDelivery, []}, extra_applications: [:logger]]
-
-  defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
-  defp elixirc_paths(_),     do: ["lib", "web"]
 
   defp deps do
     [
@@ -36,4 +31,9 @@ defmodule WebDelivery.Mixfile do
       {:rollbax, "~> 0.8.0"},
     ]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
+  defp elixirc_paths(_),     do: ["lib", "web"]
+
+  def application, do: [mod: {WebDelivery, []}, extra_applications: [:logger]]
 end
