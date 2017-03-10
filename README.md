@@ -5,6 +5,7 @@ delivery performed by the Phoenix Framework. The booster kit is meant to be a
 stand alone json api.
 
 * [Development](#development)
+  * [Getting Started](#getting-started)
   * [Usage](#usage)
     * [Installing Dependencies](#installing-dependencies)
     * [Environment Files](#environment-files)
@@ -27,8 +28,20 @@ stand alone json api.
 This booster kit has been set up with docker so the only development
 dependencies are Docker and Docker Compose. However, we also understand that not
 everyone likes to use Docker. If you wish to manage your dependencies manually,
-we recommend using (asdf)[https://github.com/asdf-vm/asdf]. A `.tool-versions`
+we recommend using [asdf](https://github.com/asdf-vm/asdf). A `.tool-versions`
 file is included in this kit.
+
+### Getting Started
+
+To kick off a new project using the Phoenix Booster Kit called `my-api` run the
+following commands:
+
+```bash
+$ git clone https://github.com/spartansystems/booster-kit-phoenix.git ./my-api
+$ cd my-api
+$ rm -rf .git
+$ git init && git add . && git commit -m "Initial Commit"
+```
 
 ### Usage
 
