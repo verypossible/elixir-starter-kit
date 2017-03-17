@@ -7,7 +7,6 @@ stand alone json api.
 * [Development](#development)
   * [Getting Started](#getting-started)
   * [Usage](#usage)
-    * [Installing Dependencies](#installing-dependencies)
     * [Environment Files](#environment-files)
     * [Running the API](#running-the-api)
     * [Running the Tests](#running-the-tests)
@@ -79,13 +78,14 @@ service you wish to run.
 $ docker-compose run -e MIX_ENV=test web mix test
 ```
 
-Another way of running tests:
+Or when your server is running with docker compose:
 
 ```bash
 $ docker-compose up
 ```
 
-Your DB and web container are now up and runnig. In another window on your *host* system:
+Your DB and web container will already be running. In another terminal on your
+*host* system:
 
 ```bash
 $ docker-compose exec web bash
@@ -93,9 +93,9 @@ root@74bcfda04bbc:/app#
 root@74bcfda04bbc:/app# MIX_ENV=test mix test
 ```
 
-Note any of the other test commands may be executed in this fashion. The main difference
-is that this method uses the already-running containers rather than starting new containers
-every time you run tests.
+*Note* any of the other test commands may be executed in this fashion. The main
+difference is that this method uses the already-running containers rather than
+starting new containers every time you run tests.
 
 #### Running the Tests with Coverage
 
