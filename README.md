@@ -48,19 +48,16 @@ $ git init && git add . && git commit -m "Initial Commit"
 If you do wish to use Docker and Docker Compose, here are some commands you will
 find helpful.
 
-#### Installing Dependencies
-
-Installing dependencies can be performed in a one step command.
-
-```bash
-$ docker-compose run web mix do deps.get, deps.compile
-```
-
 #### Environment Files
 
 The docker compose definition is configured to reference environment variables
 from an `.envrc` file. A sample file is stored at `.envrc.sample` and the
-environment file is gitignored.
+environment file is gitignored. If you're just getting started, create an empty
+file to make Docker happy:
+
+```
+touch .envrc
+```
 
 #### Running the API
 
@@ -81,6 +78,24 @@ service you wish to run.
 ```bash
 $ docker-compose run -e MIX_ENV=test web mix test
 ```
+
+Another way of running tests:
+
+```bash
+$ docker-compose up
+```
+
+Your DB and web container are now up and runnig. In another window on your *host* system:
+
+```bash
+$ docker-compose exec web bash
+root@74bcfda04bbc:/app# 
+root@74bcfda04bbc:/app# MIX_ENV=test mix test
+```
+
+Note any of the other test commands may be executed in this fashion. The main difference
+is that this method uses the already-running containers rather than starting new containers
+every time you run tests.
 
 #### Running the Tests with Coverage
 
