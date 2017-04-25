@@ -45,7 +45,7 @@
     require SomethingElse
     ```
 
-- Avoiding importing whole modules; import only the functions you need using the `only:` option. You can make an exception for `Ecto.Changeset`.
+- Avoid importing whole modules; import only the functions you need using the `only:` option. You can make an exception for `Ecto.Changeset`.
 
     ```elixir
     import Ecto.Changeset
@@ -57,6 +57,26 @@
 - Limit length to 80, except for function signatures and test descriptions.
 
 - Use `===` unless you actually need `==`. Use `!==` unless you actually need `!=`.
+
+- Put spaces after commas.
+
+- Put spaces around binary operators.
+
+- Do not pad matched pairs with spaces.
+
+    ```elixir
+    # bad
+    << "foo" >>
+    %{ a: "alpha", b: "bravo" }
+    { :ok, 42 }
+    [ 1, 2, 3 ]
+
+    # good
+    <<"foo">>
+    %{a: "alpha", b: "bravo"}
+    {:ok, 42}
+    [1, 2, 3]
+    ```
 
 - When a keyword list, list, or map spans multiple lines, place the delimiters on separate lines from the items. Do not omit the comma from the final item.
 
