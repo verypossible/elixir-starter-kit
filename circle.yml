@@ -7,9 +7,9 @@ dependencies:
     - ~/.asdf
     - deps
   pre:
-    - if ! asdf | grep version; then git clone https://github.com/HashNuke/asdf.git ~/.asdf; fi
-    - if ! asdf list erlang; then asdf plugin-add erlang https://github.com/HashNuke/asdf-erlang.git; fi
-    - if ! asdf list elixir; then asdf plugin-add elixir https://github.com/HashNuke/asdf-elixir.git; fi
+    - if ! asdf | grep version; then git clone https://github.com/asdf-vm/asdf.git ~/.asdf; fi
+    - if ! asdf list erlang; then asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git; fi
+    - if ! asdf list elixir; then asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git; fi
     - asdf install
     - mix do local.hex --force, local.rebar --force, deps.get
 test:
