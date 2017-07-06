@@ -1,4 +1,4 @@
-# Booster Kit Phoenix
+# Elixir and Phoenix Starter Kit
 
 ## Goals
 
