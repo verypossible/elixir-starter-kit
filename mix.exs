@@ -1,4 +1,4 @@
-defmodule BoosterKit.Mixfile do
+defmodule Mixfile do
   use Mix.Project
 
   def project do

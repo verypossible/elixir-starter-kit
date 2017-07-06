@@ -1,8 +1,8 @@
-# Phoenix Booster Kit
+# Elixir and Phoenix Starter Kit
 
-The Phoenix Booster kit is a starting point for an umbrella app with web
-delivery performed by the Phoenix Framework. The booster kit is meant to be a
-stand alone json api.
+The starter kit is a starting point for an umbrella app with web delivery
+performed by the Phoenix Framework. The starter kit is meant to be a stand alone
+JSON api.
 
 * [Development](#development)
   * [Getting Started](#getting-started)
@@ -24,7 +24,7 @@ stand alone json api.
 
 ## Development
 
-This booster kit has been set up with docker so the only development
+This starter kit has been set up with docker so the only development
 dependencies are Docker and Docker Compose. However, we also understand that not
 everyone likes to use Docker. If you wish to manage your dependencies manually,
 we recommend using [asdf](https://github.com/asdf-vm/asdf). A `.tool-versions`
@@ -32,11 +32,11 @@ file is included in this kit.
 
 ### Getting Started
 
-To kick off a new project using the Phoenix Booster Kit called `my-api` run the
+To kick off a new project using the starter kit called `my-api` run the
 following commands:
 
 ```bash
-$ git clone https://github.com/spartansystems/booster-kit-phoenix.git ./my-api
+$ git clone https://github.com/verypossible/elixir-starter-kit.git ./my-api
 $ cd my-api
 $ rm -rf .git
 $ git init && git add . && git commit -m "Initial Commit"
@@ -89,7 +89,7 @@ Your DB and web container will already be running. In another terminal on your
 
 ```bash
 $ docker-compose exec web bash
-root@74bcfda04bbc:/app# 
+root@74bcfda04bbc:/app#
 root@74bcfda04bbc:/app# MIX_ENV=test mix test
 ```
 
@@ -118,9 +118,9 @@ $ docker-compose run -e MIX_ENV=test web mix coveralls.html --umbrella
 
 #### Running Linters
 
-For the Phoenix Booster Kit we are using
-[credo](https://github.com/rrrene/credo) to check the codebase for consistency.
-All of the CLI options for credo are available to you as well.
+For the starter kit we are using [credo](https://github.com/rrrene/credo) to
+check the codebase for consistency. All of the CLI options for credo are
+available to you as well.
 
 ```bash
 $ docker-compose run web mix credo
@@ -128,7 +128,7 @@ $ docker-compose run web mix credo
 
 #### Running Static Code Analysis
 
-The Phoenix Booster Kit is using
+The starter kit is using
 [dialyxir](https://github.com/jeremyjh/dialyxir) for static code analysis. All
 of the CLI options for dialyzer are available to you.
 
@@ -147,9 +147,9 @@ $ docker-compose run web bash
 
 ## Deployment
 
-The Phoenix Booster Kit can be deployed to heroku relatively easily. You should
-install the [heroku cli](https://devcenter.heroku.com/articles/heroku-cli), once
-you have done so, create a project with:
+The starter kit can be deployed to heroku relatively easily. You should install
+the [heroku cli](https://devcenter.heroku.com/articles/heroku-cli), once you
+have done so, create a project with:
 
 ```bash
 $ heroku create #{PROJECT_NAME} --buildpack "https://github.com/HashNuke/heroku-buildpack-elixir.git"
@@ -165,8 +165,8 @@ grained control of your deployments.
 
 When running in production, it is crucial the appropriate monitoring tools are
 configured to ensure issues can be easily found and quickly remedied. Below are
-some tools that are commonly used and included in the Phoenix Booster Kit and
-how to configure them specifically for your project.
+some tools that are commonly used and included in the starter kit and how to
+configure them specifically for your project.
 
 ### Exception Tracking
 
@@ -193,8 +193,8 @@ $ heroku addons:create deployhooks:http --url="https://api.rollbar.com/api/1/dep
 
 Heroku doesn't keep logs around forever and they aren't exactly easy to search
 either. However, they do allow you to set up a log drain so the logs can be
-stored in another place for easier searching and better persistence. Spartan has
-a loggly account for persisting server logs. In order to set up a log drain you
+stored in another place for easier searching and better persistence. Very has a
+loggly account for persisting server logs. In order to set up a log drain you
 will need to obtain the `CUSTOMER TOKEN`. This can be obtained from the loggly
 portal. Once you have the `CUSTOMER TOKEN` you can create a log drain with the
 following command:
