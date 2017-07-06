@@ -2,20 +2,25 @@ defmodule WebDelivery do
   use Application
 
   alias WebDelivery.Endpoint
-
-  ## Callbacks
-
-  def start(_type, _args) do
-    import Supervisor.Spec
-
-    Supervisor.start_link [supervisor(Endpoint, [])],
-      strategy: :one_for_one,
-      name: WebDelivery.Supervisor
-  end
+  import Supervisor.Spec
 
   @spec config_change(keyword, keyword, [atom]) :: :ok
   def config_change(changed, _new, removed) do
     Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  @impl Application
+  def start(_type, _args) do
+    Supervisor.start_link children(),
+      strategy: :one_for_one,
+      name: WebDelivery.Supervisor
+  end
+
+  @spec children() :: [Supervisor.Spec.spec]
+  defp children do
+    [
+      supervisor(Endpoint, []),
+    ]
   end
 end
