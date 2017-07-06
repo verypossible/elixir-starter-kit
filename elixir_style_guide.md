@@ -24,7 +24,7 @@
     def foo(x, y), do: x * y
     ```
 
-- Place callbacks at the bottom of a module, marked with a `## Callbacks` separator comment.
+- Identify callback implementations with `@impl SomeModule`, replacing `SomeModule` with the name of the module that defines the callback.
 
 - Alias other modules directly under your app's namespace that are referenced within your module.
 

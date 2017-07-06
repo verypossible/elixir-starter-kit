@@ -3,9 +3,9 @@ defmodule WebDelivery.UserSocket do
 
   transport :websocket, Phoenix.Transports.WebSocket, timeout: 45_000
 
-  ## Callbacks
-
+  @impl Phoenix.Socket
   def connect(_params, socket), do: {:ok, socket}
 
+  @impl Phoenix.Socket
   def id(_socket), do: nil
 end
