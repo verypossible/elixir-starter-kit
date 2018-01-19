@@ -27,8 +27,8 @@ defmodule WebDelivery.Web do
       import WebDelivery.Router.Helpers
       import WebDelivery.Gettext
 
-      @type conn :: Plug.Conn.t
-      @type params :: Plug.Conn.params
+      @type conn :: Plug.Conn.t()
+      @type params :: Plug.Conn.params()
     end
   end
 
