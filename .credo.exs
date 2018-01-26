@@ -19,12 +19,10 @@
         {Credo.Check.Consistency.TabsOrSpaces},
         # The following check does not work as advertised.
         {Credo.Check.Consistency.MultiAliasImportRequireUse, false},
-
         {Credo.Check.Design.AliasUsage, priority: :low},
         {Credo.Check.Design.DuplicatedCode, excluded_macros: []},
         {Credo.Check.Design.TagTODO, exit_status: 2},
         {Credo.Check.Design.TagFIXME},
-
         {Credo.Check.Readability.FunctionNames},
         {Credo.Check.Readability.LargeNumbers},
         {Credo.Check.Readability.MaxLineLength, priority: :low, max_length: 80},
@@ -42,7 +40,6 @@
         {Credo.Check.Readability.TrailingWhiteSpace},
         {Credo.Check.Readability.VariableNames},
         {Credo.Check.Refactor.DoubleBooleanNegation},
-
         {Credo.Check.Refactor.ABCSize},
         {Credo.Check.Refactor.CondStatements},
         {Credo.Check.Refactor.CyclomaticComplexity},
@@ -54,7 +51,6 @@
         {Credo.Check.Refactor.PipeChainStart},
         {Credo.Check.Refactor.UnlessWithElse},
         {Credo.Check.Refactor.VariableRebinding},
-
         {Credo.Check.Warning.BoolOperationOnSameValues},
         {Credo.Check.Warning.IExPry},
         {Credo.Check.Warning.IoInspect},
@@ -71,7 +67,7 @@
         {Credo.Check.Warning.UnusedPathOperation},
         {Credo.Check.Warning.UnusedRegexOperation},
         {Credo.Check.Warning.UnusedStringOperation},
-        {Credo.Check.Warning.UnusedTupleOperation},
+        {Credo.Check.Warning.UnusedTupleOperation}
       ]
     }
   ]

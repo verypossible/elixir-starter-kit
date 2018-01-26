@@ -1,7 +1,7 @@
 defmodule WebDelivery.UserSocket do
   use Phoenix.Socket
 
-  transport :websocket, Phoenix.Transports.WebSocket, timeout: 45_000
+  transport(:websocket, Phoenix.Transports.WebSocket, timeout: 45_000)
 
   @impl Phoenix.Socket
   def connect(_params, socket), do: {:ok, socket}

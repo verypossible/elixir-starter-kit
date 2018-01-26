@@ -14,6 +14,6 @@ config :logger, :console,
 
 config :rollbax,
   access_token: System.get_env("ROLLBAR_ACCESS_TOKEN"),
-  environment: System.get_env("DEPLOY_TAG") || Mix.env
+  environment: System.get_env("DEPLOY_TAG") || Mix.env()
 
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"

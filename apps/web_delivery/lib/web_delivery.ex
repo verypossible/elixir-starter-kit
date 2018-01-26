@@ -2,7 +2,6 @@ defmodule WebDelivery do
   use Application
 
   alias WebDelivery.Endpoint
-  import Supervisor.Spec
 
   @spec config_change(keyword, keyword, [atom]) :: :ok
   def config_change(changed, _new, removed) do
@@ -12,15 +11,10 @@ defmodule WebDelivery do
 
   @impl Application
   def start(_type, _args) do
-    Supervisor.start_link children(),
+    Supervisor.start_link(
+      [%{id: Endpoint, start: {Endpoint, :start_link, []}, type: :supervisor}],
       strategy: :one_for_one,
       name: WebDelivery.Supervisor
-  end
-
-  @spec children() :: [Supervisor.Spec.spec]
-  defp children do
-    [
-      supervisor(Endpoint, []),
-    ]
+    )
   end
 end
