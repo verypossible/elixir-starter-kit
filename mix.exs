@@ -24,7 +24,7 @@ defmodule Mixfile do
 
   defp deps do
     [
-      {:credo, "~> 0.5", only: [:dev, :test]},
+      {:credo, "~> 0.9.0-rc2", only: [:dev, :test]},
       {:dialyxir, "~> 0.4", only: [:dev]},
       {:excoveralls, "~> 0.5", only: :test}
     ]
