@@ -12,7 +12,7 @@ defmodule WebDelivery do
   @impl Application
   def start(_type, _args) do
     Supervisor.start_link(
-      [supervisor(Endpoint, [])],
+      [%{id: Endpoint, start: {Endpoint, :start_link, []}, type: :supervisor}],
       strategy: :one_for_one,
       name: WebDelivery.Supervisor
     )
